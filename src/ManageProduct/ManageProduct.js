@@ -9,8 +9,6 @@ import Paper from "@mui/material/Paper";
 import { Button } from "@material-ui/core";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import EditIcon from "@mui/icons-material/Edit";
-import { useParams } from "react-router-dom/cjs/react-router-dom.min";
-import axios, { Axios } from "axios";
 
 export default function ManageProduct() {
   const [products, setProducts] = useState([]);
@@ -19,13 +17,22 @@ export default function ManageProduct() {
       .then((response) => response.json())
       .then((data) => {
         setProducts(data);
-        console.log(data);
+        // console.log(data);
       });
   }, []);
 
-  const handleDelete = (id) => {
-    console.log(id);
-    axios.delete(`/delete/${id}`).then((res) => console.log("deleted"));
+  const handleDelete = (event, id) => {
+    console.log(event.target.id);
+    fetch(`https://mighty-falls-09792.herokuapp.com/delete/${id}`, {
+      method: "DELETE",
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        if (result) {
+          event.target.parentNode.style.display = "none";
+        }
+        console.log("deleted successfullty");
+      });
   };
 
   // const productData = {
@@ -74,8 +81,8 @@ export default function ManageProduct() {
                 </Button>
                 &nbsp;&nbsp;
                 <Button
+                  onClick={(event, id) => handleDelete(event, product._id)}
                   variant="contained"
-                  onClick={() => handleDelete(product._id)}
                 >
                   <DeleteForeverIcon style={{ color: "red" }} />
                 </Button>
