@@ -1,0 +1,11 @@
+.adminStyle {
+  margin: -13px;
+  padding: -20px;
+  display: flex;
+}
+.btnStyle {
+  color: white;
+  font-size: small;
+  display: flex;
+  align-items: center;
+}

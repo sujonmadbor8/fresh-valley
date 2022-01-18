@@ -1,0 +1,10 @@
+form {
+  margin: auto auto;
+}
+input {
+  height: 35px;
+  width: 300px;
+  border: none;
+  border-radius: 8px;
+  padding: 0 10px;
+}
