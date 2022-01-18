@@ -15,7 +15,7 @@ import axios, { Axios } from "axios";
 export default function ManageProduct() {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/products`)
+    fetch(`https://mighty-falls-09792.herokuapp.com/products`)
       .then((response) => response.json())
       .then((data) => {
         setProducts(data);
@@ -34,7 +34,7 @@ export default function ManageProduct() {
   //   weight: data.weight,
   // };
 
-  // fetch(`http://localhost:5000/deleteProduct`, {
+  // fetch(`https://mighty-falls-09792.herokuapp.com/deleteProduct`, {
   //   method: "delete",
   //   headers: { "Content-Type": "application/json" },
   //   body: JSON.stringify(productData),

@@ -18,7 +18,7 @@ const AddProduct = () => {
       weight: data.weight,
       imageURL: imageURL,
     };
-    const url = `http://localhost:5000/addProduct`;
+    const url = `https://mighty-falls-09792.herokuapp.com/addProduct`;
     console.log(data);
     fetch(url, {
       method: "POST",
